@@ -1,10 +1,18 @@
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { defineConfig } from "vite";
+import viteReact from "@vitejs/plugin-react";
+import { nitro } from "nitro/vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [tanstackStart(), tailwindcss(), tsconfigPaths()],
+  plugins: [
+    tanstackStart(),
+    nitro(),        // handles Vercel SSR automatically
+    viteReact(),
+    tailwindcss(),
+    tsconfigPaths(),
+  ],
   build: {
     target: "esnext",
   },
