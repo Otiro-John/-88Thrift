@@ -1,4 +1,15 @@
 {
   "buildCommand": "npm run build",
-  "framework": null
+  "outputDirectory": ".output/public",
+  "framework": null,
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
